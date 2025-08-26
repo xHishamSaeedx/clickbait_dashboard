@@ -1,19 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap");
 
 :root {
   --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --cyber-gradient: linear-gradient(135deg, #00d4ff 0%, #090979 50%, #ff00ff 100%);
+  --cyber-gradient: linear-gradient(
+    135deg,
+    #00d4ff 0%,
+    #090979 50%,
+    #ff00ff 100%
+  );
   --neon-blue: #00d4ff;
   --neon-pink: #ff00ff;
   --neon-purple: #8b5cf6;
-  --dark-bg: #0a0a0f;
-  --darker-bg: #050508;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --border-glow: rgba(0, 212, 255, 0.3);
-  --text-primary: #ffffff;
-  --text-secondary: #b0b0b0;
+  --dark-bg: #000000; /* pitch black */
+  --darker-bg: #000000; /* pitch black */
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --border-glow: rgba(0, 212, 255, 0.35);
+  --text-primary: #f5f5f5; /* high-contrast */
+  --text-secondary: #c7c7c7; /* readable on black */
   --success: #00ff88;
   --error: #ff4757;
   --warning: #ffa502;
@@ -26,7 +31,7 @@
 }
 
 body {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   background: var(--dark-bg);
   color: var(--text-primary);
   overflow-x: hidden;
@@ -34,16 +39,27 @@ body {
 }
 
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+  background: radial-gradient(
+      circle at 20% 80%,
+      rgba(120, 119, 198, 0.3) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 119, 198, 0.3) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 40%,
+      rgba(120, 219, 255, 0.2) 0%,
+      transparent 50%
+    );
   pointer-events: none;
   z-index: -1;
 }
@@ -65,9 +81,9 @@ body::before {
 
 .app-header {
   padding: 1.5rem 2rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .header-content {
@@ -109,9 +125,9 @@ body::before {
 
 .app-footer {
   padding: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(0, 212, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-content {
@@ -188,7 +204,12 @@ body::before {
   right: 0;
   bottom: 0;
   border-radius: 12px;
-  background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(0, 212, 255, 0.1),
+    transparent
+  );
   pointer-events: none;
   z-index: -1;
 }
@@ -549,7 +570,8 @@ body::before {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px) translateX(0px);
     opacity: 0.6;
   }
@@ -560,14 +582,16 @@ body::before {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Orbitron', monospace;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Orbitron", monospace;
   font-weight: 700;
-  background: var(--cyber-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+  color: var(--text-primary);
+  text-shadow: none;
 }
 
 h1 {
@@ -589,16 +613,14 @@ h2 {
   border: 1px solid var(--border-glow);
   border-radius: 20px;
   padding: 2rem;
-  box-shadow: 
-    0 8px 32px rgba(0, 212, 255, 0.1),
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
 }
 
 .glass-card:hover {
   transform: translateY(-5px);
-  box-shadow: 
-    0 20px 40px rgba(0, 212, 255, 0.2),
+  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   border-color: var(--neon-blue);
 }
@@ -610,7 +632,7 @@ h2 {
   border-radius: 12px;
   padding: 12px 24px;
   color: white;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
@@ -622,13 +644,18 @@ h2 {
 }
 
 .cyber-button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.5s;
 }
 
@@ -638,8 +665,7 @@ h2 {
 
 .cyber-button:hover {
   transform: translateY(-2px);
-  box-shadow: 
-    0 10px 20px rgba(0, 212, 255, 0.3),
+  box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3),
     0 0 20px rgba(0, 212, 255, 0.5);
 }
 
@@ -660,7 +686,7 @@ h2 {
   border-radius: 12px;
   padding: 12px 16px;
   color: var(--text-primary);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 1rem;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
@@ -669,8 +695,7 @@ h2 {
 .cyber-input:focus {
   outline: none;
   border-color: var(--neon-blue);
-  box-shadow: 
-    0 0 20px rgba(0, 212, 255, 0.3),
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3),
     inset 0 0 10px rgba(0, 212, 255, 0.1);
 }
 
@@ -723,7 +748,7 @@ h2 {
 }
 
 .cyber-checkbox input[type="checkbox"]:checked::after {
-  content: '✓';
+  content: "✓";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -779,8 +804,12 @@ h2 {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Grid and layout */
@@ -802,15 +831,15 @@ h2 {
   h1 {
     font-size: 2rem;
   }
-  
+
   h2 {
     font-size: 1.8rem;
   }
-  
+
   .glass-card {
     padding: 1.5rem;
   }
-  
+
   .grid-2,
   .grid-3 {
     grid-template-columns: 1fr;
